@@ -1,0 +1,15 @@
+﻿000000 :=: Character Management
+000001 :=: Character
+000002 :=: New character
+000003 :=: Delete selected
+000004 :=: Save
+000005 :=: File actions
+000006 :=: Character actions
+000007 :=: Link file
+000008 :=: Remove link
+000009 :=: General
+000010 :=: ID
+000011 :=: Name
+000012 :=: Description
+000013 :=: Documents
+000014 :=: Path

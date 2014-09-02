@@ -1,0 +1,160 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:ext="clr-namespace:DarkSunProgramming.Languages"  
+        xmlns:Custom="http://schemas.microsoft.com/winfx/2006/xaml/presentation/ribbon" x:Class="CharacterManager.Windows.MainWindow"
+        Title="{ext:Translate TranslationKey=000000 }" Height="518.756" Width="924.454"
+        WindowState="Maximized">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="3*" />
+        </Grid.ColumnDefinitions>
+
+        <Custom:Ribbon Grid.Row="0" Grid.Column="0" 
+                       Grid.ColumnSpan="2">
+            <Custom:RibbonTab Header="{ext:Translate TranslationKey=000001}">
+                <Custom:RibbonGroup Header="{ext:Translate TranslationKey=000006}">
+                    <Custom:RibbonButton Command="{Binding CreateCharacterCommand}"
+                                         Name="rb"
+                                         Label="{ext:Translate TranslationKey=000002}"
+                                         LargeImageSource="pack://application:,,,/Resources/new_char.png" />
+
+                    <Custom:RibbonButton Command="{Binding DeleteCharacterCommand}"
+                                         Label="{ext:Translate TranslationKey=000003}" 
+                                         LargeImageSource="pack://application:,,,/Resources/delete_1.png"/>
+
+                    <Custom:RibbonButton Command="{Binding SaveCommand}"
+                                         Label="{ext:Translate TranslationKey=000004}"
+                                         LargeImageSource="pack://application:,,,/Resources/save_1.png" />
+                </Custom:RibbonGroup>
+
+                <Custom:RibbonGroup Header="{ext:Translate TranslationKey=000005}"
+                                    Name="rbGroupFile">
+                    <Custom:RibbonButton Command="{Binding CreateFileCommand}"
+                                         Label="{ext:Translate TranslationKey=000007}" 
+                                         LargeImageSource="pack://application:,,,/Resources/link.png" />
+
+                    <Custom:RibbonButton Command="{Binding DeleteFileCommand}"
+                                         Label="{ext:Translate TranslationKey=000008}"
+                                         LargeImageSource="pack://application:,,,/Resources/delete_1.png" />
+                </Custom:RibbonGroup>
+            </Custom:RibbonTab>
+        </Custom:Ribbon>
+
+        <ListBox Grid.Row="1" Grid.Column="0"
+                 ItemsSource="{Binding Characters}"
+                 SelectedValue="{Binding SelectedObject, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                 DisplayMemberPath="Name">
+        </ListBox>
+
+        <TabControl Grid.Row="1" Grid.Column="1"
+                    IsEnabled="{Binding IsEditingEnabled}">
+            <TabItem Header="{ext:Translate TranslationKey=000009}">
+                <Grid Margin="5, 5, 0, 0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="30" />
+                        <RowDefinition Height="30" />
+                        <RowDefinition Height="300" />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="17*" />
+                        <ColumnDefinition Width="327*"/>
+                        <ColumnDefinition Width="250" />
+                    </Grid.ColumnDefinitions>
+
+                    <TextBlock Text="{ext:Translate TranslationKey=000010}" Grid.Row="0" Grid.Column="0" />
+                    <TextBox Grid.Row="0" Grid.Column="1" 
+                             Text="{Binding SelectedObject.ID, Mode=OneWay}" 
+                             IsReadOnly="True" 
+                             Width="200" HorizontalAlignment="Left" Grid.ColumnSpan="2" />
+
+                    <TextBlock Text="{ext:Translate TranslationKey=000011}" Grid.Row="1" Grid.Column="0" />
+                    <TextBox Grid.Row="1" Grid.Column="1"
+                             Text="{Binding SelectedObject.Name, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                             HorizontalAlignment="Stretch" Grid.ColumnSpan="2" />
+
+                    <TextBlock Text="{ext:Translate TranslationKey=000012}" Grid.Row="2" Grid.Column="0" />
+                    <TextBox Grid.Row="2" Grid.Column="1"
+                             Text="{Binding SelectedObject.Description, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                             HorizontalScrollBarVisibility="Auto"
+                             VerticalScrollBarVisibility="Auto" 
+                             AcceptsReturn="True" AcceptsTab="True" Grid.ColumnSpan="2" />
+
+                    <Image Source="{Binding CharacterImage, Mode=OneWay}"
+                           Grid.Row="0" Grid.Column="3" Grid.RowSpan="3" 
+                           Width="200" Height="200" VerticalAlignment="Top" 
+                           IsHitTestVisible="True"
+                           Margin="30,20,20,0" PreviewMouseDown="Image_MouseDown"/>
+                </Grid>
+            </TabItem>
+            <TabItem Header="{ext:Translate TranslationKey=000013}">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="2*" />
+                    </Grid.ColumnDefinitions>
+
+                    <ListBox Grid.Row="0" Grid.Column="0"
+                             ItemsSource="{Binding CharacterFiles, Mode=OneWay}"
+                             SelectedValue="{Binding SelectedFile, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                             DisplayMemberPath="Name" />
+
+                    <Grid Grid.Column="1" Grid.Row="0"
+                          IsEnabled="{Binding IsEditingFileEnabled}">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="30" />
+                            <RowDefinition Height="30" />
+                            <RowDefinition Height="200" />
+                            <RowDefinition Height="30" />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="300" />
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock Text="{ext:Translate TranslationKey=000010}" Grid.Column="0" Grid.Row="0" />
+                        <TextBox Grid.Row="0" Grid.Column="1" 
+                                 Text="{Binding SelectedFile.ID, Mode=OneWay}" />
+
+                        <TextBlock Text="{ext:Translate TranslationKey=000011}" Grid.Column="0" Grid.Row="1" />
+                        <TextBox Grid.Column="1" Grid.Row="1"
+                                 Text="{Binding SelectedFile.Name, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+
+                        <TextBlock Text="{ext:Translate TranslationKey=000012}" Grid.Column="0" Grid.Row="2" />
+                        <TextBox Grid.Column="1" Grid.Row="2"
+                                 Text="{Binding SelectedFile.Description, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                 Height="200" 
+                                 HorizontalScrollBarVisibility="Auto"
+                                 VerticalScrollBarVisibility="Auto" 
+                                 AcceptsReturn="True" AcceptsTab="True" />
+
+                        <TextBlock Text="{ext:Translate TranslationKey=000014}" Grid.Column="0" Grid.Row="3" />
+                        <StackPanel Orientation="Horizontal" 
+                                    Grid.Column="1" Grid.Row="3">
+                            <TextBlock Text="{Binding SelectedFile.Path, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}" 
+                                       Width="200"/>
+                            <Button Command="{Binding ChangeFileCommand}" 
+                                    Width="40" Content="..." Margin="20, 0, 0, 0"/>
+                            <Button Command="{Binding OpenFileCommand}"
+                                    Width="40" >
+                                <Image Source="pack://application:,,,/Resources/open.png" />
+                            </Button>
+                        </StackPanel>
+                    </Grid>
+                </Grid>
+
+            </TabItem>
+        </TabControl>
+
+    </Grid>
+</Window>

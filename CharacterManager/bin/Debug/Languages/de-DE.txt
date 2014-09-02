@@ -1,0 +1,15 @@
+﻿000000 :=: Charakterverwaltung
+000001 :=: Charakter
+000002 :=: Neuer Charakter
+000003 :=: Ausgewählten löschen
+000004 :=: Speichern
+000005 :=: Datei Aktionen
+000006 :=: Charakter Aktionen
+000007 :=: Datei veknüpfen
+000008 :=: Verknüpfung löschen
+000009 :=: Allgemein
+000010 :=: ID
+000011 :=: Name
+000012 :=: Beschreibung
+000013 :=: Dokumente
+000014 :=: Pfad
