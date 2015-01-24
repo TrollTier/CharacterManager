@@ -81,8 +81,38 @@
     <Compile Include="Languages\LanguageService.cs" />
     <Compile Include="Languages\TranslateExtension.cs" />
     <Compile Include="Options\AppSettings.cs" />
+    <Compile Include="ORM\CharacterFaction.cs" />
+    <Compile Include="ORM\DatabaseInfo.cs" />
+    <Compile Include="ORM\DbUpdates\DbUpdateProgressEventArgs.cs" />
+    <Compile Include="ORM\DbUpdates\DbUpdates.cs" />
+    <Compile Include="ORM\DbUpdates\IDbUpdate.cs" />
+    <Compile Include="ORM\DbUpdates\Update_1_0_0.cs" />
+    <Compile Include="ORM\Faction.cs" />
+    <Compile Include="ORM\NotifierObject.cs" />
+    <Compile Include="UserControls\CharacterFileElement.xaml.cs">
+      <DependentUpon>CharacterFileElement.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\Dialogs\EditCharacterFileDialog.xaml.cs">
+      <DependentUpon>EditCharacterFileDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\Dialogs\EditCharacterFileViewModel.cs" />
+    <Compile Include="Windows\Factions\FactionsWindow.xaml.cs">
+      <DependentUpon>FactionsWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Windows\UserInteractionService.cs" />
     <Compile Include="Windows\ViewModelBase.cs" />
+    <Page Include="UserControls\CharacterFileElement.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\Dialogs\EditCharacterFileDialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\Factions\FactionsWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Windows\Main\MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -150,6 +180,10 @@
     <Content Include="Languages\de-DE.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Resource Include="Resources\icon_pdf.png" />
+    <Resource Include="Resources\icon_cancel.png" />
+    <Resource Include="Resources\Pencil-icon.png" />
+    <Resource Include="Resources\hero.jpg" />
     <Content Include="x64\SQLite.Interop.dll">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

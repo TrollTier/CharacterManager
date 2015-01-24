@@ -14,19 +14,31 @@ namespace CharacterManager.Windows
   {
     #region properties
 
+    /// <summary>
+    /// The database context to use for queries.
+    /// </summary>
     public static readonly DependencyProperty ContextProperty = DependencyProperty.Register(
       "Context", typeof(CharactersContext), typeof(ViewModelBase<T>));
 
+    /// <summary>
+    /// The currently selected object.
+    /// </summary>
     public static readonly DependencyProperty SelectedObjectProperty = DependencyProperty.Register(
       "SelectedObject", typeof(T), typeof(ViewModelBase<T>),
       new PropertyMetadata(new PropertyChangedCallback(OnSelectedObjectChanged)));
 
+    /// <summary>
+    /// Gets the database context to use.
+    /// </summary>
     public CharactersContext Context
     {
       get { return (CharactersContext)GetValue(ContextProperty); }
       protected set { SetValue(ContextProperty, value); }
     }
 
+    /// <summary>
+    /// Gets or sets the currently selected object.
+    /// </summary>
     public T SelectedObject
     {
       get { return (T)GetValue(SelectedObjectProperty); }

@@ -30,8 +30,10 @@ namespace CharacterManager.Windows
       {
         AppSettings.LoadOptions("CharacterManager.ini");
         LanguageService.Load(String.Format(".\\Languages\\{0}.txt", AppSettings.GetOption("General", "Language")), ":=:");
-        DataContext = context = new MainVM();
 
+        new DbUpdates.DbUpdates().UpdateDatabase(".\\db.s3db"); 
+
+        DataContext = context = new MainVM();
         InitializeComponent();
       }
       catch(Exception ex)

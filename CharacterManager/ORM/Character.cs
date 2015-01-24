@@ -19,8 +19,13 @@ namespace CharacterManager
     /// <summary>
     /// true = male, false = female. (No offense!)
     /// </summary>
-    public bool Gender { get; set; } 
+    public bool Gender { get; set; }
 
+    /// <summary>
+    /// Gets the factions of this character.
+    /// </summary>
+    public ICollection<Faction> Factions { get; private set; }
+    
     public virtual ICollection<CharacterFile> CharacterFiles 
     { 
       get { return characterFiles ?? (characterFiles = new Collection<CharacterFile>()); }

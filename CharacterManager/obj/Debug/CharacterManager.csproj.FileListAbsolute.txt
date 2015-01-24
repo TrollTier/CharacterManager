@@ -36,3 +36,7 @@ G:\Patrick\Dokumente\Visual Studio 2013\Projects\CharacterManager\CharacterManag
 G:\Patrick\Dokumente\Visual Studio 2013\Projects\CharacterManager\CharacterManager\obj\Debug\GeneratedInternalTypeHelper.g.cs
 G:\Patrick\Dokumente\Visual Studio 2013\Projects\CharacterManager\CharacterManager\obj\Debug\CharacterManager_MarkupCompile.lref
 G:\Patrick\Dokumente\Visual Studio 2013\Projects\CharacterManager\CharacterManager\obj\Debug\DarkSunProgramming.Properties.Resources.resources
+G:\Patrick\Dokumente\Visual Studio 2013\Projects\CharacterManager\CharacterManager\obj\Debug\UserControls\CharacterFileElement.baml
+G:\Patrick\Dokumente\Visual Studio 2013\Projects\CharacterManager\CharacterManager\obj\Debug\UserControls\CharacterFileElement.g.cs
+G:\Patrick\Dokumente\Visual Studio 2013\Projects\CharacterManager\CharacterManager\obj\Debug\Windows\Dialogs\EditCharacterFileDialog.g.cs
+G:\Patrick\Dokumente\Visual Studio 2013\Projects\CharacterManager\CharacterManager\obj\Debug\Windows\Dialogs\EditCharacterFileDialog.baml

@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 G:\Patrick\Dokumente\Visual Studio 2013\Projects\CharacterManager\CharacterManager\App.xaml
-1-23812050
+4-1849042551
 51286703166
-19-1848622905
+31-1871610619
 24-983483612
-Windows\Main\MainWindow.xaml;
+UserControls\CharacterFileElement.xaml;Windows\Dialogs\EditCharacterFileDialog.xaml;Windows\Factions\FactionsWindow.xaml;Windows\Main\MainWindow.xaml;
 
-True
+False
 

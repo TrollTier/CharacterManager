@@ -13,3 +13,7 @@
 000012 :=: Beschreibung
 000013 :=: Dokumente
 000014 :=: Pfad
+000015 :=: Öffnen
+000016 :=: Pfad ändern
+000017 :=: Abbrechen
+000018 :=: Bearbeiten

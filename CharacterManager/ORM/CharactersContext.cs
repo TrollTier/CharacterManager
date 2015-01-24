@@ -10,8 +10,10 @@ namespace CharacterManager
 {
   public class CharactersContext : DbContext
   {
-    public DbSet<Character> CharacterSet { get; set; }
-    public DbSet<CharacterFile> CharacterFileSet { get; set; }
+    public DbSet<Character> Characters { get; set; }
+    public DbSet<CharacterFile> CharacterFiles { get; set; }
+    public DbSet<DatabaseInfo> DatabaseInfos { get; set; }
+    public DbSet<Faction> Factions { get; set; }
 
     public CharactersContext()
     {

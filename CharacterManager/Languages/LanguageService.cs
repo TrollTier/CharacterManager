@@ -31,7 +31,7 @@ namespace DarkSunProgramming.Languages
       if (Strings.TryGetValue(key, out value))
         return value; 
       else
-        return null; 
+        return String.Empty; 
 
     }
 

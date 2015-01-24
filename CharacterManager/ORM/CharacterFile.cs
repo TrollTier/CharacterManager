@@ -6,15 +6,40 @@ using System.Threading.Tasks;
 
 namespace CharacterManager
 {
-  public class CharacterFile
+  public class CharacterFile : NotifierObject
   {
-    public string ID { get; set; }
+    private string id;
+    private string name;
+    private string description;
+    private string path; 
 
-    public string Name { get; set; }
+    public string ID 
+    {
+      get { return id;  }
+      set
+      {
+        id = value;
+        OnPropertyChanged("ID"); 
+      }
+    }
 
-    public string Description { get; set; }
+    public string Name 
+    {
+      get { return name;  }
+      set { name = value; OnPropertyChanged("Name"); } 
+    }
 
-    public string Path { get; set; }
+    public string Description 
+    {
+      get { return description;  }
+      set { description = value; OnPropertyChanged("Description"); } 
+    }
+
+    public string Path 
+    {
+      get { return path; }
+      set { path = value; OnPropertyChanged("Path"); }
+    }
 
     public String CharacterID { get; set; }
 
