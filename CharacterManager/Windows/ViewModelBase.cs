@@ -52,6 +52,10 @@ namespace CharacterManager.Windows
       ((ViewModelBase<T>)sender).OnSelectedObjectChanged(); 
     }
 
+    /// <summary>
+    /// Wird aufgerufen, wenn das aktuell ausgewählte Objekt geändert wurde. 
+    /// Muss nicht von Kind-Klassen aufgerufen werden.
+    /// </summary>
     protected virtual void OnSelectedObjectChanged() { }
 
     public event PropertyChangedEventHandler PropertyChanged;

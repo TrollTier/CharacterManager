@@ -158,9 +158,10 @@ namespace CharacterManager.Windows
       DeleteFileCommand = new DelegatedCommand(new Action(DeleteFile), new Func<bool>(CanDeleteFile));
       ChangeFileCommand = new DelegatedCommand(new Action(ChangeFile), new Func<bool>(CanChangeFile));
       OpenFileCommand = new DelegatedCommand(new Action(OpenFile), new Func<bool>(CanOpenFile));
-      EditFileCommand = new DelegatedCommand(new Action(EditFile), new Func<bool>(CanEditFile)); 
+      EditFileCommand = new DelegatedCommand(new Action(EditFile), new Func<bool>(CanEditFile));
+      ManageFactionsCommand = new DelegatedCommand(() => ManageFactions(), new Func<bool>(CanManageFactions));
     }
-     
+
     public ICommand CreateCharacterCommand { get; private set; }
     
     private bool CanCreateCharacter()
@@ -328,6 +329,7 @@ namespace CharacterManager.Windows
       }
     }
 
+
     public ICommand EditFileCommand { get; private set; }
 
     public bool CanEditFile()
@@ -345,6 +347,17 @@ namespace CharacterManager.Windows
         SelectedFile.Name = win.FileName;
         SelectedFile.Description = win.Description; 
       }
+    }
+
+
+    public ICommand ManageFactionsCommand { get; private set; }
+
+    public bool CanManageFactions() { return true; } 
+
+    public void ManageFactions()
+    {
+      FactionsWindow win = new FactionsWindow();
+      win.ShowDialog(); 
     }
 
     #endregion

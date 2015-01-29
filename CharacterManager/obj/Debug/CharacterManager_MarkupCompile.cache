@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-G:\Patrick\Dokumente\Visual Studio 2013\Projects\CharacterManager\CharacterManager\obj\Debug\
-DarkSunProgramming
+G:\Patrick\Dokumente\GitHub\CharacterManager\CharacterManager\obj\Debug\
+CharacterManager
 none
 false
 DEBUG;TRACE
-G:\Patrick\Dokumente\Visual Studio 2013\Projects\CharacterManager\CharacterManager\App.xaml
-3-1236963970
+G:\Patrick\Dokumente\GitHub\CharacterManager\CharacterManager\App.xaml
+4-1849042551
 51286703166
-25-698232418
-24-983483612
-UserControls\CharacterFileElement.xaml;Windows\Dialogs\EditCharacterFileDialog.xaml;Windows\Main\MainWindow.xaml;
+28707723509
+25-1391062195
+UserControls\CharacterFileElement.xaml;Windows\Dialogs\EditCharacterFileDialog.xaml;Windows\Factions\FactionsWindow.xaml;Windows\Main\MainWindow.xaml;
 
 False
 

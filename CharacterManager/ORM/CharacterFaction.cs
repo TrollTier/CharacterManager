@@ -7,6 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace CharacterManager
+{
   [Table("CharacterFactions")]
   public class CharacterFaction
   {

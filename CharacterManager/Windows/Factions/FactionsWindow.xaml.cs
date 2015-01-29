@@ -12,7 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace DarkSunProgramming.Windows.Factions
+namespace CharacterManager.Windows
 {
   /// <summary>
   /// Interaction logic for FactionsWindow.xaml
@@ -22,6 +22,12 @@ namespace DarkSunProgramming.Windows.Factions
     public FactionsWindow()
     {
       InitializeComponent();
+      DataContext = new FactionsWindowVM(); 
+    }
+
+    private void imgFactionImage_MouseDown(object sender, MouseButtonEventArgs e)
+    {
+
     }
   }
 }

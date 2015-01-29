@@ -1,19 +1,74 @@
-﻿<Window x:Class="DarkSunProgramming.Windows.Factions.FactionsWindow"
+﻿<Window x:Class="CharacterManager.Windows.FactionsWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:ribbon="http://schemas.microsoft.com/winfx/2006/xaml/presentation/ribbon" 
-        Title="FactionsWindow" Height="300" Width="300">
+        xmlns:lang="clr-namespace:DarkSunProgramming.Languages"
+        Title="FactionsWindow" Height="358" Width="567"
+        Icon="pack://application:,,,/Resources/factions.png">
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="50" />
+            <RowDefinition Height="25" />
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
+
+        <StackPanel Orientation="Horizontal" Grid.Column="0" Grid.Row="0" Height="Auto" Background="AliceBlue" >
+            <Button Command="{Binding AddCommand}">
+                <Image Source="pack://application:,,,/Resources/add.png" Width="25" />
+            </Button>
+            <Button Command="{Binding DeleteCommand}" Margin="5,0,0,0">
+                <Image Source="pack://application:,,,/Resources/delete_1.png" Width="25"/>
+            </Button>
+            <Button Command="{Binding SaveCommand}" Margin="5,0,0,0">
+                <Image Source="pack://application:,,,/Resources/save_1.png" Width="25"/>
+            </Button>
+        </StackPanel>
         
-        <ribbon:Ribbon Grid.Row="0" Grid.Column="0">
+        <Grid Grid.Column="0" Grid.Row="1" Margin="10, 10, 10, 10">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="3*" />
+            </Grid.ColumnDefinitions>
             
-        </ribbon:Ribbon>
+            <ListBox ItemsSource="{Binding Factions}"
+                     DisplayMemberPath="Name"
+                     SelectedValue="{Binding SelectedObject}" />      
+            
+            <Grid Grid.Row="0" Grid.Column="1" Margin="10, 0, 0, 0"
+                  IsEnabled="{Binding IsEditable}">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="100" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                
+                <TextBlock Text="{lang:Translate TranslationKey=000010}"
+                           Grid.Row="0" Grid.Column="0" />
+                <TextBox Text="{Binding SelectedObject.ID, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                         Grid.Row="0" Grid.Column="1" IsReadOnly="True" 
+                         Background="LightGray"/>
+                
+                <TextBlock Text="{lang:Translate TranslationKey=000011}"
+                           Grid.Row="1" Grid.Column="0" />
+                <TextBox Text="{Binding SelectedObject.Name, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                         Grid.Row="1" Grid.Column="1" />
+                
+                <TextBlock Text="{lang:Translate TranslationKey=000012}"
+                           Grid.Row="2" Grid.Column="0" />
+                <TextBox Text="{Binding SelectedObject.Description, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                         Grid.Row="2" Grid.Column="1" />
+                
+                <Image Source="{Binding FactionImage, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"
+                       Grid.Row="0" Grid.Column="2" Grid.RowSpan="2"
+                       Name="imgFactionImage" MouseDown="imgFactionImage_MouseDown" />
+            </Grid>
+        </Grid>
     </Grid>
 </Window>

@@ -46,6 +46,14 @@
                                          LargeImageSource="pack://application:,,,/Resources/delete_1.png" />
                 </Custom:RibbonGroup>
             </Custom:RibbonTab>
+            
+            <Custom:RibbonTab Header="{ext:Translate TranslationKey=000022}">
+                <Custom:RibbonGroup>
+                    <Custom:RibbonButton Label="{ext:Translate TranslationKey=000023}"
+                                         Command="{Binding ManageFactionsCommand}"
+                                         LargeImageSource="pack://application:,,,/Resources/factions.png" />
+                </Custom:RibbonGroup>
+            </Custom:RibbonTab>
         </Custom:Ribbon>
 
         <ListBox Grid.Row="1" Grid.Column="0"

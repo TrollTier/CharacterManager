@@ -17,3 +17,9 @@
 000016 :=: Pfad ändern
 000017 :=: Abbrechen
 000018 :=: Bearbeiten
+000019 :=: Aktionen
+000020 :=: Hinzufügen
+000021 :=: Löschen
+000022 :=: Verwaltung
+000023 :=: Fraktionen verwalten
+000024 :=: Neue Fraktion

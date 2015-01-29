@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Data.Entity;
 using System.Data.Entity.ModelConfiguration.Conventions;
 using System.Linq;
@@ -15,7 +16,7 @@ namespace CharacterManager
     public DbSet<DatabaseInfo> DatabaseInfos { get; set; }
     public DbSet<Faction> Factions { get; set; }
 
-    public CharactersContext()
+    public CharactersContext() : base("name=CharactersContext")
     {
       Database.SetInitializer<CharactersContext>(null); 
     }
