@@ -23,3 +23,6 @@
 000022 :=: Verwaltung
 000023 :=: Fraktionen verwalten
 000024 :=: Neue Fraktion
+000025 :=: Fehler beim Speichern der Fraktionen
+000026 :=: Speichern erfolgreich.
+000027 :=: Erfolg

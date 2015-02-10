@@ -27,7 +27,7 @@ namespace CharacterManager.Windows
 
     private void imgFactionImage_MouseDown(object sender, MouseButtonEventArgs e)
     {
-
+      ((FactionsWindowVM)DataContext).SetImage(); 
     }
   }
 }

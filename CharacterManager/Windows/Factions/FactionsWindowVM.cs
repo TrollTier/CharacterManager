@@ -1,5 +1,6 @@
 ﻿using DarkSunProgramming.Commands;
 using DarkSunProgramming.InteractionServices;
+using DarkSunProgramming.Languages;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -14,6 +15,9 @@ namespace CharacterManager.Windows
 {
   class FactionsWindowVM : ViewModelBase<Faction>
   {
+    /// <summary>
+    /// Gets the available factions.
+    /// </summary>
     public IEnumerable<Faction> Factions
     {
       get
@@ -25,11 +29,17 @@ namespace CharacterManager.Windows
       }
     }
 
+    /// <summary>
+    /// Gets a boolean value, indicating wether the selcted faction can be edited or not.
+    /// </summary>
     public bool IsEditable
     {
       get { return SelectedObject != null; }
     }
 
+    /// <summary>
+    /// Gets the image for the selected faction.
+    /// </summary>
     public BitmapImage FactionImage
     {
       get 
@@ -57,9 +67,9 @@ namespace CharacterManager.Windows
     private void InitializeCommands()
     {
       AddCommand = new DelegatedCommand(() => AddFaction(), () => CanAdd());
+      SaveCommand = new DelegatedCommand(() => Save(), () => CanSave()); 
     }
-
-
+    
     public ICommand AddCommand
     {
       get;
@@ -79,7 +89,9 @@ namespace CharacterManager.Windows
         f.Name = DarkSunProgramming.Languages.LanguageService.GetString("000024");
 
         Context.Factions.Add(f);
-        OnPropertyChanged("Factions"); 
+        OnPropertyChanged("Factions");
+
+        SelectedObject = f;
       }
       catch (Exception ex)
       {
@@ -87,11 +99,41 @@ namespace CharacterManager.Windows
       }      
     }
 
+    public ICommand SaveCommand { get; private set; }
+
+    public bool CanSave() { return true;  }
+
+    public void Save()
+    {
+      try
+      {
+        Context.SaveChanges();
+        UserInteractionService.ShowMessage(LanguageService.GetString("000026"), LanguageService.GetString("000027")); 
+      }
+      catch (Exception ex)
+      {
+        UserInteractionService.ShowError(ex.Message, LanguageService.GetString("000025")); 
+      }
+    }
+
     #endregion
+
+    public void SetImage()
+    {
+      if (SelectedObject == null) return;
+
+      string path = UserInteractionService.GetFilePath();
+      if (!string.IsNullOrWhiteSpace(path))
+      {
+        SelectedObject.ImagePath = path;
+        OnPropertyChanged("FactionImage");
+      }
+    }
 
     protected override void OnSelectedObjectChanged()
     {
       OnPropertyChanged("IsEditable");
+      OnPropertyChanged("FactionImage"); 
     }
   }
 }
